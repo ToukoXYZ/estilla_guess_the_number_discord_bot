@@ -74,7 +74,7 @@ client.on('message', message => {
     } else
         if (command == 'guess') { // Guess the number main command. 
             if (args[0] != RandomNumber){
-                message.fetch(id).then(msg => msg.delete());    
+                client.channels.cache.get('Channel_id').send(`Wrong ${message.author}. Try again :)`)
             }
             if (args[0] == RandomNumber) { // Guess the number number argument.
                 if (message.channel.id !== 'Channel_id') { // Change channel_id to your bot channel's id.
