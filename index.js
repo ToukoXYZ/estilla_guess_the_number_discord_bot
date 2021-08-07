@@ -44,6 +44,10 @@ client.on('message', message => {
     const args = message.content.slice(prefix.length).split(/ +/)
     const command = args.shift().toLowerCase();
 
+    if (command == 'changelog') { // Change log command (remember to comment out pin message after using once or someone might pin spam)
+        client.channels.cache.get('Channel_id').send(`Bot v1.01 changelog: !terces a dedda`).then((message) => message.pin())
+    }    
+
     if
         (command === 'info') { // Info command
         if (message.channel.id !== 'Channel_id') { // Change channel_id to your bot channel's id.
@@ -73,8 +77,11 @@ client.on('message', message => {
         }
     } else
         if (command == 'guess') { // Guess the number main command. 
-            if (args[0] != RandomNumber){
-                client.channels.cache.get('Channel_id').send(`Wrong ${message.author}. Try again :)`)
+             if (args[0] != RandomNumber) {
+                if (args[0] === 'ssueg') {
+                    client.channels.cache.get('Channel_id').send(`): niaga yrT .${message.author} gnorW`) // Easter egg :)
+                } else
+                    client.channels.cache.get('Channel_id').send(`Wrong ${message.author}. Try again :)`) // Wrong guess message 
             }
             if (args[0] == RandomNumber) { // Guess the number number argument.
                 if (message.channel.id !== 'Channel_id') { // Change channel_id to your bot channel's id.
