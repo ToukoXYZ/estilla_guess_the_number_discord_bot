@@ -48,6 +48,10 @@ client.on('message', message => {
         client.channels.cache.get('Channel_id').send(`Bot v1.01 changelog: !terces a dedda`).then((message) => message.pin())
     }    
 
+    if (command == 'sseug') {
+        client.channels.cache.get('Channel_id').send(`): niaga yrT .${message.author} gnorW`) // Easter egg :)
+    }
+
     if
         (command === 'info') { // Info command
         if (message.channel.id !== 'Channel_id') { // Change channel_id to your bot channel's id.
@@ -66,7 +70,7 @@ client.on('message', message => {
                 .setDescription('This is a "Guess the number" minigame. Your goal is to guess the correct number between 0 and 10000! If you guess the correct number you will get random amount of Estilla coins between 0 - 100 000!') // Info 
                 .addFields(
                     { name: '\u200B', value: '\u200B' },
-                    { name: 'Commands:', value: '>guess (number) & >info', inline: true }, // Commands
+                    { name: 'Commands:', value: '>guess (number), >changelog & >info', inline: true }, // Commands
                     { name: 'Random text', value: 'for helping a loser like me', inline: true }, // Random text 
                     { name: 'Version', value: '1.0' }, // Version.
                 )
@@ -78,9 +82,6 @@ client.on('message', message => {
     } else
         if (command == 'guess') { // Guess the number main command. 
              if (args[0] != RandomNumber) {
-                if (args[0] === 'ssueg') {
-                    client.channels.cache.get('Channel_id').send(`): niaga yrT .${message.author} gnorW`) // Easter egg :)
-                } else
                     client.channels.cache.get('Channel_id').send(`Wrong ${message.author}. Try again :)`) // Wrong guess message 
             }
             if (args[0] == RandomNumber) { // Guess the number number argument.
